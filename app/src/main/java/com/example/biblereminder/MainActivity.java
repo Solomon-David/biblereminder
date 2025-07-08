@@ -1,14 +1,15 @@
-// MainActivity.java
 package com.example.biblereminder;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -18,7 +19,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView verseView;
     private FloatingActionButton settingsFab;
     private BottomNavigationView bottomNav;
 
@@ -34,11 +34,22 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        verseView = findViewById(R.id.verseView);
         settingsFab = findViewById(R.id.settingsFab);
         bottomNav = findViewById(R.id.bottom_navigation);
 
-        verseView.setText("Trust in the Lord with all your heart - Proverbs 3:5");
+        TextView dropdownToggle = findViewById(R.id.dropdownToggle);
+        CardView formCard = findViewById(R.id.formCard);
+
+        dropdownToggle.setOnClickListener(v -> {
+            if (formCard.getVisibility() == View.GONE) {
+                formCard.setVisibility(View.VISIBLE);
+                dropdownToggle.setText("Hide Form ▲");
+            } else {
+                formCard.setVisibility(View.GONE);
+                dropdownToggle.setText("Add Reading ▼");
+            }
+        });
+
 
         settingsFab.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, ReminderSettingsActivity.class);
