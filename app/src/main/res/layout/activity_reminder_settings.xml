@@ -30,4 +30,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <Button
+        android:id="@+id/cancelReminderButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel Reminder"
+        app:layout_constraintTop_toBottomOf="@id/saveReminderButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/existingReminderView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No reminder set"
+        android:paddingTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/cancelReminderButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
